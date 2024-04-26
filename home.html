@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Home</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="theme-color" content="#5E92F3"> 
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="manifest" href="manifest.json">
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<span class="logo"><img src="./images/Tela- Logo.png" alt="" /></span>
+			<h1>MindCalm</h1>
+
+			<!-- Main -->
+			<div id="main">
+
+				
+				<!-- Introduction -->
+				<section id="intro" class="main">
+					<h3>Olá, como você está hoje?</h3>
+					<div class="spotlight">
+						<div class="content">
+							<header class="major">
+							</header>
+							<!--<p class="p1"><strong>Resposta</strong></p>-->
+							<div id="res"></div> <!--adiconar js aqui ihnnerHTML e switch case-->
+						</div>
+					<div class="line">
+						<div class="circle" id="raiva" onclick="emocoes('raiva')"></div>
+						<div class="circle" id="triste" onclick="emocoes('triste')"></div>
+						<div class="circle" id="neutro"  onclick="emocoes('neutro')"></div>
+						<div class="circle" id="alegre"  onclick="emocoes('alegre')"></div>
+					</div>
+					</div>
+				</section>
+
+				<!-- First Section -->
+				<section id="first" class="main special">
+					<ul class="features" style="padding-left: 0px;">
+						<div class="linha">
+							<li>
+								<a href="./pages/daily.html">
+									<img src="./images/diario.png">
+									<h3>Diário</h3>
+								</a>
+							</li>
+							<li>
+								<a href="./pages/breathing.html">
+									<img src="./images/respiracao.png">
+									<h3>Respire</h3>
+								</a>
+							</li>
+							<li>
+								<a href="./pages/meditation.html">
+									<img src="./images/meditacao.png">
+									<h3>Meditação</h3>
+								</a>
+							</li>
+						</div>
+						<div class="linha">
+							<li>
+								<a href="./pages/self-massage.html">
+									<img src="./images/automassagem.png">
+									<h3>Relaxe</h3>
+								</a>
+							</li>
+							<li>
+								<a href="./pages/education/index.html">
+									<img src="./images/educacao.png">
+									<h3>Educação</h3>
+								</a>
+							</li>
+							<li>
+								<a href="./pages/professionals.html">
+									<img src="./images/profissionais.png">
+									<h3>Profissionais</h3>
+								</a>
+							</li>
+						</div>
+					</ul>
+				</section>
+			</div>
+
+
+
+
+
+			<!-- Scripts -->
+			<script>
+				if ('serviceWorker' in navigator) {
+		  window.addEventListener('load', function() {
+			navigator.serviceWorker.register('/sw.js').then(function(registration) {
+			  // Registration was successful
+			  console.log('ServiceWorker registration successful');
+			}, function(err) {
+			  // Registration failed
+			  console.log('ServiceWorker registration failed: ', err);
+			});
+		  });
+		}
+			</script>
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/funcoes.js"></script>
+
+</body>
+
+</html>

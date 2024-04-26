@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Diário de Emoções</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="">
+
+    <!-- Ícone de seta para trás -->
+		<div>
+			<i class="fas fa-arrow-left voltar" onclick="window.location.href='../home.html';"></i>
+		</div>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1>Diário de Emoções</h1>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Content -->
+            <section id="content" class="main">
+                <form action="processar_emocao.php" method="post">
+                    <h2>Registre sua Emoção</h2>
+                    <label for="emocao">Selecione sua emoção:</label>
+                    <select name="emocao" id="emocao">
+                        <option value="raiva">Raiva</option>
+                        <option value="tristeza">Tristeza</option>
+                        <option value="neutro">Neutro</option>
+                        <option value="alegria">Alegria</option>
+                    </select>
+                    <label for="mensagem">Escreva sua mensagem:</label>
+                    <textarea name="mensagem" id="mensagem" rows="4"></textarea>
+                    <input type="submit" value="Enviar">
+                </form>
+            </section>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/browser.min.js"></script>
+        <script src="../assets/js/breakpoints.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
