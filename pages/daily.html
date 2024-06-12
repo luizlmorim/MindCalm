@@ -9,14 +9,47 @@
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <style>
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            flex: 1;
+            display: inline-block;
+            padding: 10px 10;
+            height: 3.;
+            font-size: 1em;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+
+        .button:hover {
+            background-color: #3e8e41;
+        }
+
+        .button:active {
+            background-color: #f6f6f6;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
 </head>
 
 <body class="">
 
     <!-- Ícone de seta para trás -->
-		<div>
-			<i class="fas fa-arrow-left voltar" onclick="window.location.href='../home.html';"></i>
-		</div>
+    <div>
+        <i class="fas fa-arrow-left voltar" onclick="window.location.href='../home.html';"></i>
+    </div>
 
     <!-- Wrapper -->
     <div id="wrapper">
@@ -31,7 +64,7 @@
 
             <!-- Content -->
             <section id="content" class="main">
-                <form action="processar_emocao.php" method="post">
+                <form id="emocaoForm">
                     <h2>Registre sua Emoção</h2>
                     <label for="emocao">Selecione sua emoção:</label>
                     <select name="emocao" id="emocao">
@@ -42,8 +75,12 @@
                     </select>
                     <label for="mensagem">Escreva sua mensagem:</label>
                     <textarea name="mensagem" id="mensagem" rows="4"></textarea>
-                    <input type="submit" value="Enviar">
+                    <div class="buttons">
+                        <input type="submit" value="Enviar" class="button">
+                        <button type="button" class="button" onclick="saveToFile()">Salvar como Arquivo</button>
+                    </div>
                 </form>
+                <div id="notas"></div>
             </section>
 
         </div>
@@ -56,7 +93,42 @@
         <script src="../assets/js/breakpoints.min.js"></script>
         <script src="../assets/js/util.js"></script>
         <script src="../assets/js/main.js"></script>
+        <script>
+            document.getElementById('emocaoForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede o envio do formulário e o recarregamento da página
 
+                // Captura os dados do formulário
+                const emocao = document.getElementById('emocao').value;
+                const mensagem = document.getElementById('mensagem').value;
+
+                // Cria um novo elemento de nota
+                const nota = document.createElement('div');
+                nota.classList.add('nota');
+                nota.innerHTML = <strong>Emoção:</strong> ${emocao} <br> <strong>Mensagem:</strong> ${mensagem};
+
+                // Adiciona a nota à lista de notas
+                document.getElementById('notas').appendChild(nota);
+
+                // Limpa o formulário
+                document.getElementById('emocaoForm').reset();
+            });
+
+            function saveToFile() {
+                const emocao = document.getElementById('emocao').value;
+                const mensagem = document.getElementById('mensagem').value;
+                const content = Emoção: ${emocao}\nMensagem: ${mensagem};
+
+                const blob = new Blob([content], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'nota.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+        </script>
 </body>
 
 </html>
